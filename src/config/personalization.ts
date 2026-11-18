@@ -1,8 +1,13 @@
-export interface PhotoMemory {
+// -------------------------------------------------------------
+// ROMANTIC PERSONALIZATION DATA CONFIGURATION
+// Centralized configuration for Vicky & Afzal's Universe
+// -------------------------------------------------------------
+
+export interface MemoryPhoto {
   id: string;
   url: string;
   caption: string;
-  subCaption?: string;
+  subCaption: string;
   objectPosition?: string;
 }
 
@@ -11,10 +16,10 @@ export interface LoveReason {
   title: string;
   description: string;
   emoji: string;
-  highlight?: string;
+  highlight: string;
 }
 
-export interface StoryChapter {
+export interface SequentialChapter {
   id: number;
   badge: string;
   title: string;
@@ -27,7 +32,7 @@ export const PERSONALIZATION = {
   herName: "Vicky",
   herNickname: "My Bujji / My Queen",
   myName: "Afzal",
-  myNickname: "Your Afzal / Forever Yours",
+  myNickname: "Your Bava / Forever Yours",
   birthdayDate: "November 2",
   centralTheme: "The Midnight Express To Eternity • Vicky & Afzal",
 
@@ -36,7 +41,7 @@ export const PERSONALIZATION = {
     greeting: "Hey, My Bujji Vicky ❤️",
     tagline: "Welcome aboard our Midnight Express to Eternity.",
     line1: "Somewhere between swaying train coaches and late-night station lights...",
-    line2: "There's one soul who turned every simple journey into my whole world.",
+    line2: "There's one soul who stole your Bava's heart and turned every simple journey into my whole world.",
     revealName: "VICKY ❤️",
     subtext: "My Bujji, our love was born on the rails, and today it travels to forever.",
     ctaButtonText: "BOARD OUR MIDNIGHT SURPRISE 🚆❤️",
@@ -50,10 +55,10 @@ export const PERSONALIZATION = {
     blownCandleSuccess: "Your wish is forever sealed into the night sky with my heart! ✨",
     letterMessage: [
       "Happy Birthday, my beautiful Vicky!",
-      "From sharing whispers on the train berth to watching the world blur past our window, every second with you is my greatest adventure.",
+      "From sharing whispers on the train berth to watching the world blur past our window, every second with you is your Bava's greatest adventure.",
       "You are not just a passenger in my life, Bujji; you are my favorite destination for all lifetimes.",
     ],
-    authorSign: "With all my love & soul,\nYour Afzal ❤️",
+    authorSign: "With all my love & soul,\nYour Bava, Afzal ❤️",
     nextButtonText: "Board The Midnight Express 🚆❤️",
   },
 
@@ -73,39 +78,31 @@ export const PERSONALIZATION = {
         id: "p2",
         url: "/assets/photos/photo2.jpg",
         caption: "Hands Clasped on the Train Floor",
-        subCaption: "The train rocked, but our grip never wavered. Two hands, two pink hearts, one soul.",
+        subCaption: "Our secret train moments—fingers intertwined tight with pure devotion.",
         objectPosition: "object-center",
       },
       {
         id: "p3",
-        url: "/assets/photos/photo3.jpg",
-        caption: "The Night Train Reflection",
-        subCaption: "Stealing moments in the train corridor, smiling into the mirror with you beside me.",
-        objectPosition: "object-[center_20%]",
-      },
-      {
-        id: "p4",
         url: "/assets/photos/photo4.jpg",
-        caption: "Berth Whispers & Sweet Solace",
-        subCaption: "Tucked away in the sleeper berth, heart stickers and endless giggles under the blanket.",
+        caption: "Porch Memories in Blue Saree",
+        subCaption: "Sitting with effortless grace, taking my breath away with every glance.",
         objectPosition: "object-[center_35%]",
       },
       {
-        id: "p5",
+        id: "p4",
         url: "/assets/photos/photo5.jpg",
-        caption: "Station Lights & Hey Moments",
-        subCaption: "Watching station lights illuminate your angelic smile. You are my only stop.",
+        caption: "The Queen of My Heart",
+        subCaption: "That gentle, radiant smile that lights up my darkest midnight journeys.",
         objectPosition: "object-[center_25%]",
       },
       {
-        id: "p6",
+        id: "p5",
         url: "/assets/photos/photo6.jpg",
         caption: "My Royal Queen",
-        subCaption: "Traditional grace, unmatched beauty. You take my breath away every single time, Bujji.",
+        subCaption: "Traditional beauty, pure elegance, and the soul I choose across every lifetime.",
         objectPosition: "object-top",
       },
     ],
-    nextButtonText: "How We Fell In Love On The Rails 🚆❤️",
   },
 
   // 4. How Friendship Became Love (The 5 sequential chapters)
@@ -149,7 +146,7 @@ export const PERSONALIZATION = {
         id: 5,
         badge: "Final Station: Forever",
         title: "My Royal Queen & Lifetime Soulmate",
-        quote: "Traditional grace, unmatched beauty. You take my breath away every single time, Bujji. No matter where the tracks lead, you are my forever.",
+        quote: "Traditional grace, unmatched beauty. You take my breath away every single time, Bujji. No matter where the tracks lead, you will always be your Bava's queen and forever.",
         photoUrl: "/assets/photos/photo6.jpg",
         objectPosition: "object-top",
       },
@@ -172,7 +169,7 @@ export const PERSONALIZATION = {
       },
       {
         title: "Hands Locked on the Train Floor",
-        description: "When the train rocked through the dark, our fingers locked tight—a silent, sacred vow that Afzal will never let Bujji go.",
+        description: "When the train rocked through the dark, our fingers locked tight—a silent, sacred vow that your Bava will never let Bujji go.",
       },
       {
         title: "A One-Way Ticket to Eternity",
@@ -217,8 +214,8 @@ export const PERSONALIZATION = {
       },
       {
         id: 5,
-        title: "How you call my name",
-        description: "Nobody utters 'Afzal' the way you do—it sounds like a prayer, a whisper, and a lifelong promise.",
+        title: "The way you softly call me 'Bava'",
+        description: "Whenever you whisper 'Bava'... my whole world stops. The sweetest melody in the universe, filled with tender love, playful warmth, and our eternal promise.",
         emoji: "💬",
         highlight: "Favorite Melody",
       },
@@ -277,7 +274,7 @@ export const PERSONALIZATION = {
 
   // 7. Dark Romance Love Letter
   darkLetter: {
-    envelopeTitle: "A Dark Romance Epistle From Afzal...",
+    envelopeTitle: "A Dark Romance Epistle From Your Bava...",
     envelopeSubtitle: "Written in the shadows of our midnight train, sealed with burning devotion.",
     openButtonText: "BREAK THE SEAL & READ ❤️🔥",
     recipient: "My Dearest Bujji Vicky,",
@@ -290,10 +287,10 @@ export const PERSONALIZATION = {
       "When you held my hand on the train floor, all the restless noise inside my mind dissolved into peace. When I look at you, I don't just see a beautiful girl; I see my destiny, my purpose, and my sanctuary.",
       "I promise to stand between you and every sorrow. I promise to shield you, worship you, protect you, and cherish you through every storm.",
       "Happy Birthday, My Bujji. You are the poetry God wrote with His most delicate touch.",
-      "Never forget: You belong to my heart, and I am irrevocably, eternally yours.",
+      "Never forget: You belong to my heart, and I am irrevocably, eternally yours—forever your Bava.",
     ],
     signOff: "With a heart that bleeds love only for you,",
-    senderName: "Afzal\nYour Lover & Your Protector. ❤️🔥",
+    senderName: "Afzal (Forever Your Bava)\nYour Lover & Your Protector. ❤️🔥",
     closingLine: "Some souls are tied by thread. Ours are bound by the steel rails of destiny.",
     nextButtonText: "MY FINAL QUESTION FOR YOU 🚆❤️",
   },
@@ -303,25 +300,25 @@ export const PERSONALIZATION = {
     line1: "Vicky, my Bujji...",
     line2: "There is a question burning within my soul.",
     line3: "A promise that will echo across lifetimes.",
-    nextButtonText: "Ask Me, Afzal ❤️",
+    nextButtonText: "Ask Me, Bava ❤️",
   },
 
   // 9. Final Proposal & Celebration
   proposal: {
     question: "Vicky, my beautiful Bujji... will you be my lifetime co-passenger, holding my hand through every station, every storm, and every sunset on our journey to forever?",
-    yesButtonText: "ALWAYS, MY AFZAL! 🚆❤️",
-    hugButtonText: "PULL ME CLOSE IN OUR COUPÉ 🥺",
+    yesButtonText: "YES, ALWAYS MY BAVA! 🚆❤️",
+    hugButtonText: "PULL ME CLOSE IN OUR COUPÉ, BAVA 🥺❤️",
     acceptance: {
       title: "TICKET TO ETERNITY CONFIRMED! 🚆❤️🔥",
       message: "Vicky, here's to our midnight train journeys, our sacred bond, and every lifetime we will conquer together.",
       birthdayCheer: "Happy Birthday, My Queen Vicky! 🎂✨",
-      signature: "Forever Your Afzal ❤️",
+      signature: "Forever Your Bava, Afzal ❤️",
       finalPhotoUrl: "/assets/photos/photo3.jpg",
       finalPhotoCaption: "From train passengers to soulmates forever.",
     },
     hugResponse: {
       title: "Wrapped tight in our sleeper coupé! Holding you close, my Bujji! 🥺❤️",
-      message: "Listening to the rhythm of the tracks together, holding you against my chest, today and for all eternity.",
+      message: "Listening to the rhythm of the tracks together, holding you tight against my chest. Your Bava is yours today, tomorrow, and for all eternity.",
       returnButtonText: "Back to My Question ❤️",
     },
   },

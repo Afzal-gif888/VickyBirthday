@@ -272,7 +272,7 @@ export const Scene09Proposal: React.FC<Scene09ProposalProps> = ({ onNext, onRest
               </motion.p>
             </div>
 
-            {/* Show: "LOTS OF LOVE, YOUR AFZAL ❤️🔥" */}
+            {/* Show: "LOTS OF LOVE, YOUR BAVA AFZAL ❤️🔥" */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -280,7 +280,7 @@ export const Scene09Proposal: React.FC<Scene09ProposalProps> = ({ onNext, onRest
               className="pt-2 border-t border-rose-500/20"
             >
               <p className="font-serif text-sm tracking-widest text-amber-300 font-bold uppercase">
-                LOTS OF LOVE, YOUR AFZAL ❤️🔥
+                LOTS OF LOVE, YOUR BAVA AFZAL ❤️🔥
               </p>
             </motion.div>
 

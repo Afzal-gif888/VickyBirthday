@@ -98,7 +98,7 @@ export const TrainTransitionOverlay: React.FC<TrainTransitionOverlayProps> = ({
 
               <div className="space-y-0.5">
                 <h3 className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-amber-200 via-rose-100 to-amber-200 bg-clip-text text-transparent text-glow-gold leading-tight">
-                  Safe in Afzal's Arms Forever ❤️
+                  Safe in Your Bava's Arms Forever ❤️
                 </h3>
                 <p className="font-cormorant italic text-[11px] sm:text-xs text-amber-200/90 px-1 leading-tight">
                   "No matter where the rails took us, you are my eternal home."
@@ -109,7 +109,7 @@ export const TrainTransitionOverlay: React.FC<TrainTransitionOverlayProps> = ({
             {/* Middle Section: Romantic Message */}
             <div className="glass-burgundy border border-amber-400/30 rounded-2xl p-2.5 sm:p-3 shadow-inner space-y-1.5">
               <p className="font-cormorant italic text-xs sm:text-sm text-rose-100/95 leading-relaxed">
-                "Our train has carried our laughter, our whispers on swaying berths, our held hands on the train floor, and our sacred vows. Now and for every lifetime that follows, you are safe in my arms."
+                "Our train has carried our laughter, our whispers on swaying berths, our held hands on the train floor, and our sacred vows. Now and for every lifetime that follows, you are safe in your Bava's arms."
               </p>
               <div className="pt-1 border-t border-rose-500/20 flex items-center justify-center gap-2 text-[9px] font-mono text-amber-300/80">
                 <span>PNR: FOREVERWITHVICKY143</span>
@@ -125,7 +125,7 @@ export const TrainTransitionOverlay: React.FC<TrainTransitionOverlayProps> = ({
                   Happy Birthday, My Queen Vicky 🎂✨
                 </span>
                 <p className="font-script text-xl sm:text-2xl text-rose-200 text-glow-rose leading-tight">
-                  Forever Your Afzal ❤️
+                  Forever Your Bava, Afzal ❤️
                 </p>
               </div>
 
@@ -202,7 +202,7 @@ export const TrainTransitionOverlay: React.FC<TrainTransitionOverlayProps> = ({
               </div>
 
               <h3 className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-amber-200 via-rose-100 to-amber-200 bg-clip-text text-transparent leading-tight">
-                {isReturn ? 'Returning Home to Afzal...' : 'Departing for: From Passengers to Soulmates...'}
+                {isReturn ? "Returning Home to Bava's Arms..." : 'Departing for: From Passengers to Soulmates...'}
               </h3>
 
               <p className="font-cormorant italic text-xs text-rose-200/80 px-2 leading-tight">
@@ -326,7 +326,7 @@ export const TrainTransitionOverlay: React.FC<TrainTransitionOverlayProps> = ({
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                 <span>
                   {isReturn
-                    ? 'Returning to: Platform Forever (Afzal)'
+                    ? "Returning to: Platform Forever (Bava's Arms)"
                     : 'Approaching: From Train Passengers to Soulmates'}
                 </span>
               </div>

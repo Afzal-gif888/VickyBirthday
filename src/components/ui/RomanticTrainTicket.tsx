@@ -45,14 +45,14 @@ export const RomanticTrainTicket: React.FC<RomanticTrainTicketProps> = ({
         pnr: 'FOREVERWITHVICKY143',
         fromStation: 'Proposal Junction',
         fromPlatform: 'Platform Forever • She Said Always',
-        toStation: "Home in Afzal's Arms",
+        toStation: "Home in Bava's Arms",
         toPlatform: 'Eternity Central (EC)',
         routeTag: 'DESTINATION: FOREVER TOGETHER',
         coach: 'LOVERS COUPÉ',
         berth: 'HEART 46',
         status: 'ETERNALLY BOOKED',
         validThru: 'Beyond Infinity ❤️',
-        quote: '"Every journey begins and ends in your arms, Bujji. Our train never stops loving you."',
+        quote: '"Every journey begins and ends in your arms, Bujji. Your Bava will never stop loving you."',
         defaultActionText: 'STOP TRAIN 🛑🚆',
         actionColor: 'from-amber-500 via-rose-600 to-burgundy-700',
       }
@@ -76,86 +76,76 @@ export const RomanticTrainTicket: React.FC<RomanticTrainTicketProps> = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="relative w-full max-w-[390px] mx-auto select-none my-3"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="w-full relative mx-auto select-none"
     >
-      {/* Outer Romantic Starlight Aura */}
-      <div
-        className={`absolute -inset-1 rounded-3xl blur-md transition-all duration-700 ${
-          isReturn
-            ? 'bg-gradient-to-r from-amber-500/35 via-rose-600/30 to-purple-700/35'
-            : 'bg-gradient-to-r from-rose-500/30 via-amber-500/30 to-burgundy-600/30'
-        }`}
-      />
+      {/* Golden/Rose Outer Glow */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400/40 via-rose-500/40 to-amber-300/40 rounded-3xl blur-sm" />
 
-      {/* Ticket Container with Perforated Ticket Notches */}
-      <div className="relative bg-gradient-to-br from-[#1a0510] via-[#10030a] to-[#070104] border-2 border-amber-400/60 rounded-3xl p-3.5 sm:p-4 shadow-2xl text-left overflow-hidden">
-        {/* Ticket Perforated Cutouts on Left and Right */}
-        <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#07030d] border-r-2 border-amber-400/60 shadow-inner" />
-        <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#07030d] border-l-2 border-amber-400/60 shadow-inner" />
-
-        {/* Vintage Train Ticket Watermark Background */}
-        <div className="absolute right-2 bottom-2 text-rose-500/5 pointer-events-none">
-          <Train className="w-36 h-36 -rotate-12" />
-        </div>
-
-        {/* Ticket Top Header */}
+      {/* Ticket Container */}
+      <div className="relative bg-gradient-to-b from-[#18050e] via-[#0f0208] to-[#080104] border-2 border-amber-300/70 rounded-3xl p-3 sm:p-4 text-left shadow-2xl overflow-hidden">
+        
+        {/* Ticket Header & Watermark */}
         <div className="flex items-center justify-between border-b border-amber-400/30 pb-2">
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-amber-400/15 border border-amber-400/40 text-amber-300">
-              <Train className="w-4 h-4 animate-pulse" />
-            </div>
-            <div>
-              <span className="font-mono text-[9px] text-amber-300/90 tracking-widest uppercase block">
-                {ticketData.badge}
-              </span>
-              <h4 className="font-serif text-xs font-bold text-champagne-100 tracking-wider">
-                {ticketData.title}
-              </h4>
-            </div>
-          </div>
-
-          <div className="text-right">
-            <span className="font-mono text-[9px] text-rose-300/70 block">PNR NO.</span>
-            <span className="font-mono text-xs font-bold text-amber-300">{ticketData.pnr}</span>
-          </div>
-        </div>
-
-        {/* Station Journey Route */}
-        <div className="py-2 my-0.5 flex items-center justify-between relative">
-          <div className="text-left max-w-[38%]">
-            <span className="font-mono text-[9px] text-rose-300/70 uppercase block">From Station</span>
-            <p className="font-serif text-sm font-bold text-rose-100 leading-snug">{ticketData.fromStation}</p>
-            <span className="text-[10px] text-champagne-300/80 font-mono block truncate">
-              {ticketData.fromPlatform}
+          <div className="flex items-center gap-1.5">
+            <Train className="w-4 h-4 text-amber-300 animate-pulse" />
+            <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-widest text-amber-300 uppercase">
+              {ticketData.badge}
             </span>
           </div>
+          <div className="flex items-center gap-1 text-[9px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">
+            <Heart className="w-2.5 h-2.5 fill-emerald-400" />
+            <span>CONFIRMED</span>
+          </div>
+        </div>
 
-          {/* Route Arrow with Moving Heart Train */}
-          <div className="flex-1 flex flex-col items-center px-2">
-            <div className="flex items-center gap-1 w-full justify-center">
-              <span className="h-[1px] flex-1 bg-gradient-to-r from-amber-400/30 via-rose-400 to-amber-400/30" />
-              <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-500 animate-pulse flex-shrink-0" />
-              <span className="h-[1px] flex-1 bg-gradient-to-r from-amber-400/30 via-rose-400 to-amber-400/30" />
-            </div>
-            <span className="text-[8px] font-mono text-amber-300/90 tracking-wider mt-0.5 text-center">
+        {/* Train Title & PNR Bar */}
+        <div className="pt-2 pb-1.5 flex items-center justify-between">
+          <div>
+            <h3 className="font-serif text-sm sm:text-base font-bold bg-gradient-to-r from-amber-200 via-rose-100 to-amber-100 bg-clip-text text-transparent">
+              {ticketData.title}
+            </h3>
+            <span className="text-[9px] font-mono text-rose-300/80 tracking-wider">
               {ticketData.routeTag}
             </span>
           </div>
-
-          <div className="text-right max-w-[38%]">
-            <span className="font-mono text-[9px] text-rose-300/70 uppercase block">To Destination</span>
-            <p className="font-serif text-sm font-bold text-rose-100 leading-snug">{ticketData.toStation}</p>
-            <span className="text-[10px] text-champagne-300/80 font-mono block truncate">
-              {ticketData.toPlatform}
+          <div className="text-right">
+            <span className="text-[8px] font-mono text-amber-300/60 uppercase block">PNR Number</span>
+            <span className="font-mono font-bold text-xs text-amber-300 tracking-widest">
+              {ticketData.pnr}
             </span>
           </div>
         </div>
 
-        {/* Ticket Details Grid (Coach, Berth, Status) */}
-        <div className="grid grid-cols-3 gap-1.5 py-1.5 px-2.5 rounded-xl bg-black/50 border border-amber-400/20 text-center text-[10px] font-mono shadow-inner">
+        {/* Route Details Box */}
+        <div className="my-2 p-2.5 rounded-2xl bg-black/60 border border-rose-500/25 grid grid-cols-2 gap-2 relative">
+          {/* Origin */}
+          <div className="space-y-0.5">
+            <span className="text-[8px] font-mono uppercase text-amber-400/80 tracking-wider block">From Station</span>
+            <p className="font-serif text-xs font-bold text-rose-100 leading-tight">
+              {ticketData.fromStation}
+            </p>
+            <p className="font-mono text-[9px] text-rose-300/60">
+              {ticketData.fromPlatform}
+            </p>
+          </div>
+
+          {/* Destination */}
+          <div className="space-y-0.5 text-right border-l border-rose-500/20 pl-2">
+            <span className="text-[8px] font-mono uppercase text-amber-400/80 tracking-wider block">Destination</span>
+            <p className="font-serif text-xs font-bold text-amber-200 leading-tight">
+              {ticketData.toStation}
+            </p>
+            <p className="font-mono text-[9px] text-amber-300/70">
+              {ticketData.toPlatform}
+            </p>
+          </div>
+        </div>
+
+        {/* Coach, Berth & Passenger Information */}
+        <div className="grid grid-cols-3 gap-1.5 py-1 px-2 rounded-xl bg-rose-950/30 border border-rose-500/20 text-center font-mono">
           <div>
             <span className="text-rose-300/60 block text-[8px] uppercase">Coach</span>
             <span className="text-amber-200 font-bold text-xs">{ticketData.coach}</span>
@@ -173,9 +163,9 @@ export const RomanticTrainTicket: React.FC<RomanticTrainTicketProps> = ({
         {/* Passenger Info */}
         <div className="pt-2 pb-1.5 flex items-center justify-between text-xs">
           <div>
-            <span className="text-[9px] font-mono text-rose-300/70 uppercase block">Passenger</span>
+            <span className="text-[9px] font-mono text-rose-300/70 uppercase block">Passengers</span>
             <p className="font-serif font-bold text-rose-100">
-              Vicky <span className="text-amber-300 font-script text-sm">(My Bujji)</span> & Afzal
+              Vicky <span className="text-amber-300 font-script text-sm">(Bujji)</span> & Afzal <span className="text-rose-300 font-script text-sm">(Bava)</span>
             </p>
           </div>
           <div className="text-right">

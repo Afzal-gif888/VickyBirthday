@@ -230,7 +230,7 @@ export const SecretLockScreen: React.FC<SecretLockScreenProps> = ({ onUnlock }) 
 
         {/* Footer Note */}
         <div className="border-t border-rose-500/15 pt-3 text-[11px] font-serif text-rose-300/50">
-          Created with endless love by Afzal for Vicky ❤️
+          Created with endless love by your Bava (Afzal) for Bujji ❤️
         </div>
       </motion.div>
     </div>

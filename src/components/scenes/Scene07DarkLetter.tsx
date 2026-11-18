@@ -84,7 +84,7 @@ export const Scene07DarkLetter: React.FC<Scene07DarkLetterProps> = ({
     if (!isUnlocked) {
       romanticAudio.playTypewriterKeySound();
       setLockError(
-        `This letter is sealed by Afzal's heart. You must uncover all 12 reasons in Chapter 06 to break this seal (${count}/12 discovered) ❤️`
+        `This letter is sealed by your Bava's heart. You must uncover all 12 reasons in Chapter 06 to break this seal (${count}/12 discovered) ❤️`
       );
       return;
     }
@@ -149,7 +149,7 @@ export const Scene07DarkLetter: React.FC<Scene07DarkLetterProps> = ({
             <span className="text-amber-300">Dark Romance Epistle</span>
           </div>
           <h2 className="font-serif text-xl sm:text-2xl font-bold bg-gradient-to-r from-amber-200 via-rose-200 to-rose-400 bg-clip-text text-transparent">
-            A Letter From Your Afzal
+            A Letter From Your Bava
           </h2>
         </div>
 
@@ -190,7 +190,7 @@ export const Scene07DarkLetter: React.FC<Scene07DarkLetterProps> = ({
                   <span>Sealed with 12 Secret Locks</span>
                 </div>
                 <p className="font-cormorant italic text-xs text-rose-200/90">
-                  "This letter is sealed by Afzal's heart. Discover all 12 reasons in Chapter 06 to break this seal."
+                  "This letter is sealed by your Bava's heart. Discover all 12 reasons in Chapter 06 to break this seal."
                 </p>
                 <div className="pt-1">
                   <span className="inline-block px-3 py-0.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 font-mono text-[10px] font-bold">

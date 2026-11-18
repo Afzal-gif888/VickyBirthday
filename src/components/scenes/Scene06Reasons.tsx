@@ -197,7 +197,7 @@ export const Scene06Reasons: React.FC<Scene06ReasonsProps> = ({
                   </p>
 
                   <div className="text-[9px] font-serif text-rose-300/70 pt-0.5 border-t border-rose-500/15">
-                    Afzal ❤️
+                    Your Bava ❤️
                   </div>
                 </div>
               </div>
@@ -217,7 +217,7 @@ export const Scene06Reasons: React.FC<Scene06ReasonsProps> = ({
           >
             <div className="flex items-center justify-center gap-1.5 text-amber-300 text-xs font-serif font-bold mb-0.5">
               <Lock className="w-3.5 h-3.5" />
-              <span>Sealed by Afzal's Heart</span>
+              <span>Sealed by Your Bava's Heart</span>
             </div>
             <p className="font-cormorant italic text-xs text-rose-200">
               "{promptMessage}"

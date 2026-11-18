@@ -18,7 +18,7 @@ const CHAPTER_TITLES = [
   'Dark Romance Letter',
   'One Last Question',
   'The Proposal & Celebration',
-  "Safe in Afzal's Arms",
+  "Safe in Bava's Arms",
 ];
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({

@@ -54,7 +54,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
               </div>
 
               <h2 className="font-serif text-xl sm:text-2xl font-bold bg-gradient-to-r from-amber-200 via-rose-100 to-amber-200 bg-clip-text text-transparent text-glow-gold">
-                Returning Home to Afzal...
+                Returning Home to Bava's Arms...
               </h2>
 
               <p className="font-cormorant italic text-xs sm:text-sm text-rose-200/90 px-2">
@@ -174,7 +174,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
             <div className="space-y-2 pt-1">
               <div className="flex items-center justify-center gap-1.5 text-[11px] font-mono text-amber-300/90">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>Approaching: Platform Forever (Afzal's Arms)</span>
+                <span>Approaching: Platform Forever (Bava's Arms)</span>
               </div>
 
               <button
@@ -209,7 +209,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
             {/* Title & Subtitle */}
             <div className="space-y-1">
               <h2 className="font-serif text-2xl font-bold bg-gradient-to-r from-amber-200 via-rose-100 to-amber-200 bg-clip-text text-transparent text-glow-gold">
-                Safe in Afzal's Arms Forever ❤️
+                Safe in Your Bava's Arms Forever ❤️
               </h2>
               <p className="font-cormorant italic text-xs sm:text-sm text-amber-200/90 px-1 leading-snug">
                 "No matter where the rails took us, you are my eternal home."
@@ -219,7 +219,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
             {/* Romantic Vows Card */}
             <div className="glass-burgundy border border-amber-400/35 rounded-2xl p-3.5 shadow-inner space-y-2 text-left">
               <p className="font-cormorant italic text-xs sm:text-sm text-rose-100 leading-relaxed text-center">
-                "Our train has carried our laughter, our whispers on swaying berths, our held hands on the train floor, and our sacred vows. Now and for every lifetime that follows, you are safe in my arms."
+                "Our train has carried our laughter, our whispers on swaying berths, our held hands on the train floor, and our sacred vows. Now and for every lifetime that follows, you are safe in your Bava's arms."
               </p>
               <div className="pt-2 border-t border-rose-500/20 flex items-center justify-center gap-2 text-[9px] font-mono text-amber-300/80">
                 <span>PNR: FOREVERWITHVICKY143</span>
@@ -234,7 +234,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
                 Happy Birthday, My Queen Vicky 🎂✨
               </span>
               <p className="font-script text-2xl text-rose-200 text-glow-rose">
-                Forever Your Afzal ❤️
+                Forever Your Bava, Afzal ❤️
               </p>
             </div>
 
