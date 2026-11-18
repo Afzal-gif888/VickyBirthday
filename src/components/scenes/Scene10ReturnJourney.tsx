@@ -20,7 +20,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
     const timer = window.setTimeout(() => {
       setHasArrived(true);
       romanticAudio.playCelebrationSound();
-    }, 3800);
+    }, 4200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -69,7 +69,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
               <motion.div
                 initial={{ x: '130%' }}
                 animate={{ x: '-130%' }}
-                transition={{ duration: 3.8, ease: [0.25, 0.1, 0.25, 1] }}
+                transition={{ duration: 4.2, ease: [0.25, 0.1, 0.25, 1] }}
                 style={{ transform: 'scaleX(-1)' }}
                 className="absolute bottom-6 flex items-end"
               >

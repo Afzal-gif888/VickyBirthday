@@ -36,7 +36,7 @@ export const TrainTransitionOverlay: React.FC<TrainTransitionOverlayProps> = ({
 
     window.setTimeout(() => {
       onComplete();
-    }, 3800);
+    }, 4500);
   };
 
   return (
@@ -219,7 +219,7 @@ export const TrainTransitionOverlay: React.FC<TrainTransitionOverlayProps> = ({
               <motion.div
                 initial={{ x: isReturn ? '130%' : '-130%' }}
                 animate={{ x: isReturn ? '-130%' : '130%' }}
-                transition={{ duration: 3.8, ease: [0.25, 0.1, 0.25, 1] }}
+                transition={{ duration: 4.5, ease: [0.25, 0.1, 0.25, 1] }}
                 style={{ transform: isReturn ? 'scaleX(-1)' : 'none' }}
                 className="absolute bottom-6 flex items-end"
               >

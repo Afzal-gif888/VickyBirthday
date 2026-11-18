@@ -10,13 +10,18 @@
  * 5. Detailed logging of autoplay result (no silent ignoring).
  * 6. Flawless user-interaction fallback on the very first touch/click.
  * 7. Continuity across all 9 chapters, transitions, and proposal animations.
+ * 8. High-impact original train departure & arrival sound effects.
  */
 
 const AUDIO_SRC = '/assets/music/lover-bgm.mp3';
+const TRAIN_DEPARTURE_SRC = '/assets/sound/train-departure.wav';
+const TRAIN_ARRIVAL_SRC = '/assets/sound/train-arrival.wav';
 
 class RomanticAudioManager {
   private static instance: RomanticAudioManager;
   public audio: HTMLAudioElement | null = null;
+  public trainDepartureAudio: HTMLAudioElement | null = null;
+  public trainArrivalAudio: HTMLAudioElement | null = null;
   private audioCtx: AudioContext | null = null;
   public isPlaying = false;
   public isMuted = false;
@@ -72,6 +77,19 @@ class RomanticAudioManager {
         console.error('[Lover BGM] Audio loading/playback error:', err || e);
       });
 
+      // Preload big original train sound effects
+      try {
+        this.trainDepartureAudio = new Audio(TRAIN_DEPARTURE_SRC);
+        this.trainDepartureAudio.preload = 'auto';
+        this.trainDepartureAudio.volume = 1.0;
+
+        this.trainArrivalAudio = new Audio(TRAIN_ARRIVAL_SRC);
+        this.trainArrivalAudio.preload = 'auto';
+        this.trainArrivalAudio.volume = 1.0;
+      } catch (trainErr) {
+        console.warn('[Train Audio] Preload notice:', trainErr);
+      }
+
       // Immediate Autoplay Attempt
       this.attemptAutoplay();
     } catch (err) {
@@ -98,99 +116,96 @@ class RomanticAudioManager {
     const cleanup = () => {
       window.removeEventListener('click', handleFirstGesture, true);
       window.removeEventListener('touchstart', handleFirstGesture, true);
-      window.removeEventListener('touchend', handleFirstGesture, true);
       window.removeEventListener('pointerdown', handleFirstGesture, true);
     };
 
     window.addEventListener('click', handleFirstGesture, { capture: true, once: true });
     window.addEventListener('touchstart', handleFirstGesture, { capture: true, once: true });
-    window.addEventListener('touchend', handleFirstGesture, { capture: true, once: true });
     window.addEventListener('pointerdown', handleFirstGesture, { capture: true, once: true });
   }
 
+  /**
+   * Respect visibility changes (e.g. switching browser tabs).
+   */
   private setupVisibilityHandler() {
     document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && this.hasStarted && !this.isMuted && this.audio && this.audio.paused) {
-        this.audio.play().catch(() => {});
+      if (document.hidden) {
+        if (this.audio && !this.audio.paused) {
+          this.audio.pause();
+        }
+      } else {
+        if (this.isPlaying && this.audio && this.audio.paused) {
+          this.audio.play().catch(() => {});
+        }
       }
     });
   }
 
-  public subscribe(callback: (state: { isPlaying: boolean; isMuted: boolean; volume: number }) => void) {
-    this.listeners.push(callback);
-    callback({ isPlaying: this.isPlaying, isMuted: this.isMuted, volume: this.volume });
+  public subscribe(fn: (state: { isPlaying: boolean; isMuted: boolean; volume: number }) => void) {
+    this.listeners.push(fn);
+    fn({ isPlaying: this.isPlaying, isMuted: this.isMuted, volume: this.volume });
     return () => {
-      this.listeners = this.listeners.filter(l => l !== callback);
+      this.listeners = this.listeners.filter((l) => l !== fn);
     };
   }
 
   private notify() {
-    this.listeners.forEach(cb => cb({ isPlaying: this.isPlaying, isMuted: this.isMuted, volume: this.volume }));
+    this.listeners.forEach((fn) =>
+      fn({ isPlaying: this.isPlaying, isMuted: this.isMuted, volume: this.volume })
+    );
   }
 
   /**
-   * Attempts autoplay immediately when the application loads.
-   * Handles promise and logs exact status/error.
+   * Autoplay attempt immediately upon application mount.
    */
-  public async attemptAutoplay(): Promise<boolean> {
-    if (!this.audio) return false;
-    if (this.isPlaying && !this.audio.paused) return true;
-    if (this.hasAttemptedAutoplay && this.autoplayBlocked) return false;
+  public attemptAutoplay() {
+    if (this.hasAttemptedAutoplay || !this.audio) return;
     this.hasAttemptedAutoplay = true;
 
-    try {
-      await this.audio.play();
-      this.isPlaying = true;
-      this.hasStarted = true;
-      this.autoplayBlocked = false;
-      console.log('Lover BGM started successfully via autoplay');
-      this.notify();
-      return true;
-    } catch (error) {
-      this.autoplayBlocked = true;
-      this.isPlaying = false;
-      console.warn('Autoplay blocked by browser policy:', error);
-      this.notify();
-      return false;
+    console.log('[Lover BGM] Initiating immediate autoplay attempt...');
+
+    const playPromise = this.audio.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          this.isPlaying = true;
+          this.hasStarted = true;
+          this.autoplayBlocked = false;
+          console.log('[Lover BGM] Autoplay SUCCEEDED seamlessly on load!');
+          this.notify();
+        })
+        .catch((err) => {
+          this.autoplayBlocked = true;
+          this.isPlaying = false;
+          console.warn(
+            '[Lover BGM] Autoplay blocked by mobile browser gesture policy. Ready to start on very first tap:',
+            err?.name,
+            err?.message
+          );
+          this.notify();
+        });
     }
   }
 
-  /**
-   * Starts Lover BGM.
-   * - Starts at 00:00 on first launch.
-   * - If already playing, maintains continuous smooth playback without restarting.
-   */
   public async startMusic(): Promise<boolean> {
-    if (!this.audio) {
-      this.initPersistentAudio();
-    }
+    this.initPersistentAudio();
     if (!this.audio) return false;
 
-    // Do NOT restart or interrupt if already playing smoothly
-    if (this.isPlaying && !this.audio.paused) {
-      return true;
-    }
-
     try {
-      if (!this.hasStarted) {
-        try {
-          this.audio.currentTime = 0;
-        } catch {
-          // Ignore if currentTime cannot be set before metadata
-        }
+      this.audio.muted = this.isMuted;
+      this.audio.volume = this.volume;
+      const playPromise = this.audio.play();
+      if (playPromise !== undefined) {
+        await playPromise;
       }
-      await this.audio.play();
       this.isPlaying = true;
       this.hasStarted = true;
       this.autoplayBlocked = false;
-      console.log('Lover BGM started successfully');
       this.notify();
       return true;
-    } catch (error) {
-      this.autoplayBlocked = true;
-      this.isPlaying = false;
-      console.warn('Autoplay blocked by browser policy (user interaction required):', error);
-      this.notify();
+    } catch (err) {
+      console.error('[Lover BGM] Manual play error:', err);
       return false;
     }
   }
@@ -215,6 +230,12 @@ class RomanticAudioManager {
     this.isMuted = !this.isMuted;
     if (this.audio) {
       this.audio.muted = this.isMuted;
+    }
+    if (this.trainDepartureAudio) {
+      this.trainDepartureAudio.muted = this.isMuted;
+    }
+    if (this.trainArrivalAudio) {
+      this.trainArrivalAudio.muted = this.isMuted;
     }
     this.notify();
   }
@@ -336,34 +357,102 @@ class RomanticAudioManager {
     }
   }
 
+  /**
+   * Plays the BIG, authentic original train departure sound.
+   * Multi-chime air locomotive horn blast + steam hiss + accelerating chug-chug.
+   */
   public playTrainWhistle() {
+    if (this.isMuted) return;
+
+    // 1. Play real uncompressed stereo train departure audio
+    try {
+      if (!this.trainDepartureAudio) {
+        this.trainDepartureAudio = new Audio(TRAIN_DEPARTURE_SRC);
+        this.trainDepartureAudio.preload = 'auto';
+      }
+      this.trainDepartureAudio.currentTime = 0;
+      this.trainDepartureAudio.volume = 1.0;
+      const playPromise = this.trainDepartureAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn('[Train Audio] HTMLAudio play error, using synth boost:', err);
+          this.playBigTrainHornSynth();
+        });
+      }
+    } catch (err) {
+      console.warn('[Train Audio] Playback fallback triggered:', err);
+      this.playBigTrainHornSynth();
+    }
+
+    // 2. Also layer instant sub-bass locomotive rumble via Web Audio for maximum punch
+    this.playBigTrainHornSynth();
+  }
+
+  /**
+   * Massive multi-chime horn synthesizer with deep sub-bass.
+   */
+  public playBigTrainHornSynth() {
     try {
       this.initAudioContext();
       if (!this.audioCtx || this.isMuted) return;
-      this.playTone(440, 1.4, 0.08);
-      this.playTone(554.37, 1.4, 0.07);
-      setTimeout(() => {
-        this.playTone(440, 1.2, 0.09);
-        this.playTone(554.37, 1.2, 0.08);
-        this.playTone(659.25, 1.0, 0.05);
-      }, 400);
-      setTimeout(() => this.playBell(880, 0.08), 800);
-      setTimeout(() => this.playBell(1046.50, 0.08), 1000);
+      const now = this.audioCtx.currentTime;
+
+      // Chord: Sub-bass + D4 + F4 + A4 + C5 (Express Locomotive Horn)
+      const frequencies = [146.8, 293.66, 349.23, 440.0, 523.25, 587.33];
+
+      frequencies.forEach((freq, idx) => {
+        const osc = this.audioCtx!.createOscillator();
+        const gain = this.audioCtx!.createGain();
+
+        osc.type = idx === 0 ? 'sine' : 'sawtooth';
+        osc.frequency.setValueAtTime(freq, now);
+
+        const peakGain = idx === 0 ? 0.22 : 0.08;
+        // Blast 1
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(peakGain, now + 0.06);
+        gain.gain.setValueAtTime(peakGain, now + 1.2);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 1.45);
+
+        // Blast 2
+        gain.gain.setValueAtTime(0.001, now + 1.6);
+        gain.gain.linearRampToValueAtTime(peakGain * 1.2, now + 1.68);
+        gain.gain.setValueAtTime(peakGain * 1.2, now + 3.6);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 4.2);
+
+        osc.connect(gain);
+        gain.connect(this.audioCtx!.destination);
+
+        osc.start(now);
+        osc.stop(now + 4.2);
+      });
     } catch {
       // Audio protection
     }
   }
 
+  /**
+   * Plays the authentic train arrival sound with pneumatic brakes and bell.
+   */
   public playTrainStop() {
+    if (this.isMuted) return;
     try {
-      this.initAudioContext();
-      if (!this.audioCtx || this.isMuted) return;
-      this.playTone(330, 1.0, 0.06);
-      setTimeout(() => this.playBell(659.25, 0.1), 300);
-      setTimeout(() => this.playBell(523.25, 0.1), 600);
-      setTimeout(() => this.playBell(392.00, 0.1), 900);
+      if (!this.trainArrivalAudio) {
+        this.trainArrivalAudio = new Audio(TRAIN_ARRIVAL_SRC);
+        this.trainArrivalAudio.preload = 'auto';
+      }
+      this.trainArrivalAudio.currentTime = 0;
+      this.trainArrivalAudio.volume = 1.0;
+      const playPromise = this.trainArrivalAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
     } catch {
-      // Audio protection
+      // Fallback
+      this.playTone(330, 1.0, 0.15);
+      setTimeout(() => this.playBell(659.25, 0.15), 300);
+      setTimeout(() => this.playBell(523.25, 0.15), 600);
+      setTimeout(() => this.playBell(392.00, 0.15), 900);
     }
   }
 
