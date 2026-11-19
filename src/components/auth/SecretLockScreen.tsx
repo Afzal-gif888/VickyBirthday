@@ -7,8 +7,8 @@ interface SecretLockScreenProps {
   onUnlock: () => void;
 }
 
-const VALID_USERNAME = 'itsyourbday@46';
-const VALID_PASSWORD = 'itsourlove@143';
+const VALID_USERNAME = 'Foryou@20';
+const VALID_PASSWORD = 'Mylove@143';
 
 export const SecretLockScreen: React.FC<SecretLockScreenProps> = ({ onUnlock }) => {
   const [username, setUsername] = useState('');
@@ -43,12 +43,12 @@ export const SecretLockScreen: React.FC<SecretLockScreenProps> = ({ onUnlock }) 
     const cleanUsername = username.trim();
     const cleanPassword = password.trim();
 
-    // Check username (accepting Ayush@28 or ayush@28 to avoid mobile auto-capitalization issues)
+    // Check username (case-insensitive to avoid mobile auto-capitalization issues)
     const isUserValid =
       cleanUsername === VALID_USERNAME ||
       cleanUsername.toLowerCase() === VALID_USERNAME.toLowerCase();
 
-    // Check password (accepting itsourlove@143 or Itsourlove@143 to prevent mobile auto-caps lockouts)
+    // Check password (case-insensitive to prevent mobile auto-caps lockouts)
     const isPassValid =
       cleanPassword === VALID_PASSWORD ||
       cleanPassword.toLowerCase() === VALID_PASSWORD.toLowerCase();
