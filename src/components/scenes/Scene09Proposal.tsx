@@ -141,29 +141,6 @@ export const Scene09Proposal: React.FC<Scene09ProposalProps> = ({ onNext, onRest
               "{proposal.acceptance.message}"
             </motion.p>
 
-            {/* Grand Couple Photograph Keepsake - Perfectly Aligned Vertical Portrait */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 }}
-              className="pt-2"
-            >
-              <div className="relative rounded-2xl overflow-hidden border-2 border-amber-300/70 shadow-2xl bg-black/40 p-2 space-y-1.5">
-                <div className="relative w-full aspect-[3/3.8] sm:aspect-[3/4] max-h-[290px] sm:max-h-[330px] rounded-xl overflow-hidden bg-rose-950/20">
-                  <img
-                    src={proposal.acceptance.finalPhotoUrl}
-                    alt="Afzal and Vicky"
-                    className="w-full h-full object-cover object-center rounded-xl"
-                  />
-                </div>
-                <div className="text-center py-1 px-2.5 bg-black/50 rounded-lg border border-amber-300/25">
-                  <p className="font-cormorant italic text-xs sm:text-sm text-amber-200 font-semibold">
-                    "{proposal.acceptance.finalPhotoCaption}"
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
             {/* Return Journey Ticket with STOP TRAIN button */}
             <div className="pt-2">
               <RomanticTrainTicket

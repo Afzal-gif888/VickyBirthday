@@ -115,7 +115,7 @@ export const SecretLockScreen: React.FC<SecretLockScreenProps> = ({ onUnlock }) 
         <div className="space-y-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 border border-rose-500/30 text-rose-300 text-[11px] font-mono tracking-widest uppercase">
             <ShieldCheck className="w-3.5 h-3.5 text-champagne-300" />
-            <span>Private Sanctuary • For Us Only</span>
+            <span>20 Nov 2005 • The Angel's Sanctuary</span>
           </div>
 
           <h1 className="font-serif text-2xl sm:text-3xl font-bold bg-gradient-to-r from-champagne-200 via-rose-100 to-champagne-200 bg-clip-text text-transparent text-glow-rose">
@@ -230,7 +230,7 @@ export const SecretLockScreen: React.FC<SecretLockScreenProps> = ({ onUnlock }) 
 
         {/* Footer Note */}
         <div className="border-t border-rose-500/15 pt-3 text-[11px] font-serif text-rose-300/50">
-          Created with endless love by your Bava (Afzal) for Bujji ❤️
+          Dedicated to the angel born on 20 November 2005 • Created with endless love by her Bava ❤️
         </div>
       </motion.div>
     </div>

@@ -40,7 +40,7 @@ export const RomanticTrainTicket: React.FC<RomanticTrainTicketProps> = ({
   // Ticket Data based on variant
   const ticketData = isReturn
     ? {
-        badge: 'RETURN JOURNEY PASS • IRCTC #143',
+        badge: 'RETURN JOURNEY PASS • 20 NOV 2005',
         title: 'THE RETURN EXPRESS TO FOREVER',
         pnr: 'FOREVERWITHVICKY143',
         fromStation: 'Proposal Junction',
@@ -51,24 +51,24 @@ export const RomanticTrainTicket: React.FC<RomanticTrainTicketProps> = ({
         coach: 'LOVERS COUPÉ',
         berth: 'HEART 46',
         status: 'ETERNALLY BOOKED',
-        validThru: 'Beyond Infinity ❤️',
+        validThru: '20 NOV 2005 → INFINITY ❤️',
         quote: '"Every journey begins and ends in your arms, Bujji. Your Bava will never stop loving you."',
         defaultActionText: 'STOP TRAIN 🛑🚆',
         actionColor: 'from-amber-500 via-rose-600 to-burgundy-700',
       }
     : {
-        badge: 'SPECIAL LOVERS COUPÉ • IRCTC #143',
+        badge: 'SPECIAL LOVERS COUPÉ • 20 NOV 2005',
         title: 'THE MIDNIGHT EXPRESS TO ETERNITY',
         pnr: 'ITSOURLOVE143',
         fromStation: 'Friendship Junction',
         fromPlatform: 'Platform 1 • First Look',
         toStation: 'Passengers to Soulmates',
         toPlatform: 'Station 01 • Two Travelers on Same Train',
-        routeTag: 'NON-STOP • ETERNAL ROUTE',
+        routeTag: 'BORN 20 NOV 2005 • ANGEL EXPRESS',
         coach: 'AC-1 COUPÉ',
         berth: 'BERTH 46',
         status: 'CNF (LIFETIME)',
-        validThru: 'Every Lifetime ❤️',
+        validThru: '20 NOV 2005 → FOREVER ❤️',
         quote: '"Berths may sway and tracks may turn, but my soul is booked to travel beside yours forever."',
         defaultActionText: 'START TRAIN 🚆💨',
         actionColor: 'from-rose-600 via-rose-500 to-amber-600',

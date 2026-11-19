@@ -30,7 +30,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
   };
 
   return (
-    <div className="relative min-h-[82vh] flex flex-col items-center justify-center px-3 py-4 select-none w-full max-w-[430px] mx-auto text-center">
+    <div className="relative flex flex-col items-center justify-center px-3 py-2 select-none w-full max-w-[430px] mx-auto text-center my-auto">
       {/* Ambient Radial Golden Aura */}
       <div className="absolute w-[340px] h-[340px] rounded-full bg-gradient-to-tr from-amber-600/20 via-rose-700/25 to-burgundy-900/30 blur-[90px] pointer-events-none" />
 
@@ -231,7 +231,7 @@ export const Scene10ReturnJourney: React.FC<Scene10ReturnJourneyProps> = ({
             {/* Birthday Cheer & Signature */}
             <div className="pt-2 border-t border-amber-400/30 w-full space-y-0.5">
               <span className="font-serif text-[11px] text-amber-300/90 tracking-widest uppercase block">
-                Happy Birthday, My Queen Vicky 🎂✨
+                Happy Birthday to the angel born on 20 Nov 2005 • My Queen Vicky 🎂✨
               </span>
               <p className="font-script text-2xl text-rose-200 text-glow-rose">
                 Forever Your Bava, Afzal ❤️

@@ -33,7 +33,7 @@ export const PERSONALIZATION = {
   herNickname: "My Bujji / My Queen",
   myName: "Afzal",
   myNickname: "Your Bava / Forever Yours",
-  birthdayDate: "November 2",
+  birthdayDate: "20 November 2005",
   centralTheme: "The Midnight Express To Eternity • Vicky & Afzal",
 
   // 1. Magical Opening
@@ -43,20 +43,21 @@ export const PERSONALIZATION = {
     line1: "Somewhere between swaying train coaches and late-night station lights...",
     line2: "There's one soul who stole your Bava's heart and turned every simple journey into my whole world.",
     revealName: "VICKY ❤️",
-    subtext: "My Bujji, our love was born on the rails, and today it travels to forever.",
+    subtext: "20 November 2005 • The day heaven sent an angel to earth, born to be your Bava's forever.",
     ctaButtonText: "BOARD OUR MIDNIGHT SURPRISE 🚆❤️",
   },
 
   // 2. Birthday Celebration
   birthday: {
-    heading: "HAPPY BIRTHDAY, MY BUJJI! 🎂🚆",
-    subheading: "Berth 46 • The day destiny seated you beside my heart forever.",
+    heading: "HAPPY BIRTHDAY, MY ANGEL VICKY! 🎂✨",
+    subheading: "20 November 2005 • The Day An Angel Was Born On Earth 🕊️✨",
     blowCandlePrompt: "Make a secret wish and tap the flame... 🕯️",
     blownCandleSuccess: "Your wish is forever sealed into the night sky with my heart! ✨",
     letterMessage: [
-      "Happy Birthday, my beautiful Vicky!",
-      "From sharing whispers on the train berth to watching the world blur past our window, every second with you is your Bava's greatest adventure.",
-      "You are not just a passenger in my life, Bujji; you are my favorite destination for all lifetimes.",
+      "Happy Birthday, my angelic Vicky! 🎂✨",
+      "On 20 November 2005, the heavens opened and sent the purest angel down to this earth—born to bring light into my world and steal your Bava's heart forever.",
+      "From sharing whispers on the train berth to holding hands on swaying tracks, every second with you is my greatest blessing.",
+      "You are not just a passenger in my life, Bujji; you are my favorite destination across all universes and all lifetimes.",
     ],
     authorSign: "With all my love & soul,\nYour Bava, Afzal ❤️",
     nextButtonText: "Board The Midnight Express 🚆❤️",
@@ -280,13 +281,14 @@ export const PERSONALIZATION = {
     recipient: "My Dearest Bujji Vicky,",
     paragraphs: [
       "If the universe collapsed into eternal darkness, I would still recognize the rhythm of your heartbeat blindfolded.",
+      "On 20th November 2005, an angel came down to this earth. Long before we ever locked eyes across that train berth, destiny had already engraved your name on my soul.",
       "I will never forget our midnight train journeys together. The cool night air through the train window, the rhythmic hum of the rails beneath us, and the way your eyes sparkled under the dim compartment lights.",
       "The train rushed through the dark at a hundred miles an hour, but sitting beside you, the entire world stood perfectly still.",
       "You didn't just walk into my life; you took root deep inside my soul. Before you, my heart was a quiet, guarded fortress. With one smile on that train berth, you made me surrender everything.",
       "I love you with an intensity that is fierce, passionate, and utterly unconditional. You are not a temporary station in my life—you are my final destination, my gravity, and my home.",
       "When you held my hand on the train floor, all the restless noise inside my mind dissolved into peace. When I look at you, I don't just see a beautiful girl; I see my destiny, my purpose, and my sanctuary.",
       "I promise to stand between you and every sorrow. I promise to shield you, worship you, protect you, and cherish you through every storm.",
-      "Happy Birthday, My Bujji. You are the poetry God wrote with His most delicate touch.",
+      "Happy Birthday, My Bujji. You are the poetry God wrote with His most delicate touch, born on that magical 20th of November to rule your Bava's heart.",
       "Never forget: You belong to my heart, and I am irrevocably, eternally yours—forever your Bava.",
     ],
     signOff: "With a heart that bleeds love only for you,",
@@ -311,7 +313,7 @@ export const PERSONALIZATION = {
     acceptance: {
       title: "TICKET TO ETERNITY CONFIRMED! 🚆❤️🔥",
       message: "Vicky, here's to our midnight train journeys, our sacred bond, and every lifetime we will conquer together.",
-      birthdayCheer: "Happy Birthday, My Queen Vicky! 🎂✨",
+      birthdayCheer: "Happy Birthday to the angel born on 20 Nov 2005 • My Queen Vicky 🎂✨",
       signature: "Forever Your Bava, Afzal ❤️",
       finalPhotoUrl: "/assets/photos/photo3.jpg",
       finalPhotoCaption: "From train passengers to soulmates forever.",
