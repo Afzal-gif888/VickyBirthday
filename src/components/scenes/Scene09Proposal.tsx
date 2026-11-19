@@ -264,8 +264,8 @@ export const Scene09Proposal: React.FC<Scene09ProposalProps> = ({ onNext, onRest
             transition={{ duration: 0.6 }}
             className="glass-burgundy border-2 border-rose-400/50 rounded-3xl p-5 sm:p-6 shadow-2xl space-y-4 text-center relative overflow-hidden"
           >
-            {/* Animated Arms Forming Virtual Hug */}
-            <VirtualHugIllustration />
+            {/* Real Couple Hugging Animated Visual */}
+            <VirtualHugIllustration squeezeTrigger={celebrationKey} />
 
             {/* Display Hug Title */}
             <motion.h2
