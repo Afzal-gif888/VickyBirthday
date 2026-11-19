@@ -32,6 +32,16 @@ export const RomanticTrainTicket: React.FC<RomanticTrainTicketProps> = ({
   };
 
   const handleActionClick = () => {
+    if (isReturn) {
+      romanticAudio.playTrainStop();
+    } else {
+      romanticAudio.playTrainWhistle();
+    }
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      try {
+        navigator.vibrate([60, 40, 100]);
+      } catch {}
+    }
     if (onAction) {
       onAction();
     }

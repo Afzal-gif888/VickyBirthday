@@ -17,6 +17,25 @@ export const SecretLockScreen: React.FC<SecretLockScreenProps> = ({ onUnlock }) 
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [shake, setShake] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [showHintModal, setShowHintModal] = useState(false);
+
+  const handleAutofillAndUnlock = () => {
+    setUsername(VALID_USERNAME);
+    setPassword(VALID_PASSWORD);
+    setShowHintModal(false);
+    setErrorMsg(null);
+    setIsSuccess(true);
+    romanticAudio.playCelebrationSound();
+    romanticAudio.startMusic();
+
+    try {
+      sessionStorage.setItem('vicky_universe_auth', 'true');
+    } catch {}
+
+    setTimeout(() => {
+      onUnlock();
+    }, 700);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -226,7 +245,64 @@ export const SecretLockScreen: React.FC<SecretLockScreenProps> = ({ onUnlock }) 
               </>
             )}
           </motion.button>
+
+          {/* Sweet Hint Button for Vicky */}
+          <div className="pt-1 text-center">
+            <button
+              type="button"
+              onClick={() => setShowHintModal(true)}
+              className="text-xs font-serif text-amber-300/90 hover:text-amber-200 inline-flex items-center gap-1.5 underline underline-offset-4 decoration-amber-400/40 cursor-pointer transition-colors"
+            >
+              <span>Need a hint from your Bava? 💌</span>
+            </button>
+          </div>
         </form>
+
+        {/* Romantic Hint Modal Lightbox */}
+        <AnimatePresence>
+          {showHintModal && (
+            <div
+              role="dialog"
+              aria-modal="true"
+              className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+              onClick={() => setShowHintModal(false)}
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                onClick={(e) => e.stopPropagation()}
+                className="w-full max-w-[340px] glass-burgundy border-2 border-amber-300/60 rounded-3xl p-5 text-center space-y-3.5 shadow-2xl"
+              >
+                <div className="w-12 h-12 mx-auto rounded-full bg-rose-500/20 border border-amber-300/50 flex items-center justify-center">
+                  <Heart className="w-6 h-6 text-rose-400 fill-rose-400" />
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="font-serif text-lg font-bold text-amber-200">
+                    A Whisper From Bava ❤️
+                  </h3>
+                  <p className="font-cormorant italic text-sm text-rose-200">
+                    "My Bujji, you will never be locked out of my heart. Here are our secret keys:"
+                  </p>
+                </div>
+
+                <div className="bg-black/50 border border-rose-500/30 rounded-xl p-3 text-left space-y-1.5 font-mono text-xs">
+                  <p className="text-amber-300">Username: <span className="text-white font-bold">{VALID_USERNAME}</span></p>
+                  <p className="text-amber-300">Password: <span className="text-white font-bold">{VALID_PASSWORD}</span></p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleAutofillAndUnlock}
+                  className="w-full py-3 rounded-full bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600 text-white font-serif text-xs font-bold tracking-wider shadow-lg border border-amber-300/50 active:scale-95 cursor-pointer"
+                >
+                  AUTOFILL & ENTER WITH LOVE ✨
+                </button>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
 
         {/* Footer Note */}
         <div className="border-t border-rose-500/15 pt-3 text-[11px] font-serif text-rose-300/50">

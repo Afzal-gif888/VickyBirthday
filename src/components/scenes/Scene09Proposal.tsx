@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 import { Heart, Sparkles, RotateCcw, ArrowLeft, Train } from 'lucide-react';
 import { PERSONALIZATION } from '../../config/personalization';
 import { romanticAudio } from '../../utils/audioManager';
@@ -18,16 +19,63 @@ export const Scene09Proposal: React.FC<Scene09ProposalProps> = ({ onNext, onRest
   const [responseState, setResponseState] = useState<'prompt' | 'always' | 'hug'>('prompt');
   const [celebrationKey, setCelebrationKey] = useState<number>(0);
 
+  const fireGrandConfetti = () => {
+    try {
+      confetti({
+        particleCount: 180,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ['#ffd700', '#f43f5e', '#ffffff', '#fb7185', '#ffe4e6'],
+      });
+      setTimeout(() => {
+        confetti({
+          particleCount: 100,
+          angle: 60,
+          spread: 70,
+          origin: { x: 0, y: 0.7 },
+          colors: ['#ffd700', '#f43f5e', '#fb7185'],
+        });
+        confetti({
+          particleCount: 100,
+          angle: 120,
+          spread: 70,
+          origin: { x: 1, y: 0.7 },
+          colors: ['#ffd700', '#f43f5e', '#fb7185'],
+        });
+      }, 350);
+    } catch {}
+
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      try {
+        navigator.vibrate([100, 50, 150, 50, 100]);
+      } catch {}
+    }
+  };
+
   const handleAlwaysAccept = () => {
     setResponseState('always');
     setCelebrationKey(prev => prev + 1);
     romanticAudio.playCelebrationSound();
+    fireGrandConfetti();
   };
 
   const handleVirtualHug = () => {
     setResponseState('hug');
     setCelebrationKey(prev => prev + 1);
     romanticAudio.playHugSound();
+    try {
+      confetti({
+        particleCount: 90,
+        spread: 60,
+        origin: { y: 0.7 },
+        colors: ['#ffb6c1', '#f43f5e', '#ffe4e6'],
+      });
+    } catch {}
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      try {
+        navigator.vibrate([80, 40, 80]);
+      } catch {}
+    }
   };
 
   return (
@@ -171,6 +219,7 @@ export const Scene09Proposal: React.FC<Scene09ProposalProps> = ({ onNext, onRest
                 onClick={() => {
                   setCelebrationKey(prev => prev + 1);
                   romanticAudio.playCelebrationSound();
+                  fireGrandConfetti();
                 }}
                 className="w-full inline-flex items-center justify-center gap-1.5 py-3 rounded-full bg-rose-600/70 active:bg-rose-500 text-white font-serif text-xs tracking-wider border border-rose-400/40 shadow cursor-pointer hover:bg-rose-600 transition-colors"
               >

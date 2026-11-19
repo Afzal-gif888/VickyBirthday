@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Heart, ArrowRight, Train } from 'lucide-react';
 import { PERSONALIZATION } from '../../config/personalization';
 import { romanticAudio } from '../../utils/audioManager';
+import { HeartbeatSync } from '../ui/HeartbeatSync';
 
 interface Scene01EntranceProps {
   onNext: () => void;
@@ -106,17 +107,28 @@ export const Scene01Entrance: React.FC<Scene01EntranceProps> = ({ onNext }) => {
             </div>
 
             {/* Mobile First Touch CTA Button: Starts Lover BGM + Experience */}
-            <div className="w-full max-w-[320px] pt-3 space-y-3">
+            <div className="w-full max-w-[320px] pt-1 space-y-4">
+              <HeartbeatSync
+                onComplete={handleOpenSurprise}
+                ctaText="Hold your thumb to sync heartbeats with Bava & board 🚆"
+              />
+
+              <div className="relative flex items-center justify-center">
+                <div className="h-[1px] w-full bg-rose-500/20" />
+                <span className="px-2 text-[10px] font-mono text-rose-300/60 uppercase tracking-widest bg-[#0b0308]">OR TAP</span>
+                <div className="h-[1px] w-full bg-rose-500/20" />
+              </div>
+
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={handleOpenSurprise}
-                className="group relative w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-full font-serif text-base font-bold tracking-wider text-white shadow-2xl bg-gradient-to-r from-rose-600 via-rose-500 to-burgundy-700 border border-amber-300/60 overflow-hidden cursor-pointer"
+                className="group relative w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-full font-serif text-sm font-bold tracking-wider text-white shadow-2xl bg-gradient-to-r from-rose-600 via-rose-500 to-burgundy-700 border border-amber-300/60 overflow-hidden cursor-pointer"
               >
                 {/* Subtle shine sweep */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-                <Train className="w-5 h-5 text-amber-200 animate-pulse" />
+                <Train className="w-4 h-4 text-amber-200 animate-pulse" />
                 <span className="relative z-10 text-rose-50 drop-shadow tracking-wider">
                   {entrance.ctaButtonText}
                 </span>

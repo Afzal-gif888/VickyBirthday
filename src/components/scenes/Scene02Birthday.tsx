@@ -5,6 +5,8 @@ import { Sparkles, ArrowRight, ArrowLeft, Train } from 'lucide-react';
 import { PERSONALIZATION } from '../../config/personalization';
 import { romanticAudio } from '../../utils/audioManager';
 import { TrainTransitionOverlay } from '../ui/TrainTransitionOverlay';
+import { AngelTimeCounter } from '../ui/AngelTimeCounter';
+import { SurpriseGiftBox } from '../ui/SurpriseGiftBox';
 
 interface Scene02BirthdayProps {
   onNext: () => void;
@@ -203,8 +205,11 @@ export const Scene02Birthday: React.FC<Scene02BirthdayProps> = ({ onNext, onPrev
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6 }}
-              className="w-full max-w-[390px] mx-auto glass-burgundy border border-amber-400/30 rounded-3xl p-5 shadow-2xl space-y-3 text-center relative"
+              className="w-full max-w-[390px] mx-auto glass-burgundy border border-amber-400/30 rounded-3xl p-4 sm:p-5 shadow-2xl space-y-3.5 text-center relative"
             >
+              {/* Live Ticking Angel Counter */}
+              <AngelTimeCounter />
+
               <div className="space-y-2 font-cormorant text-base text-rose-100 leading-relaxed pt-1">
                 {birthday.letterMessage.map((line, idx) => (
                   <p key={idx} className={idx === 0 ? "font-serif text-lg text-amber-200 font-semibold" : ""}>
@@ -213,11 +218,14 @@ export const Scene02Birthday: React.FC<Scene02BirthdayProps> = ({ onNext, onPrev
                 ))}
               </div>
 
-              <div className="border-t border-rose-500/20 pt-3 flex flex-col items-center">
+              <div className="border-t border-rose-500/20 pt-2 flex flex-col items-center">
                 <div className="font-script text-2xl text-rose-300">
                   {birthday.authorSign}
                 </div>
               </div>
+
+              {/* Interactive Mystery Birthday Gift Box From Bava */}
+              <SurpriseGiftBox />
 
               {/* Next Button: Triggers Train Journey Transition */}
               <div className="pt-2 flex items-center justify-between gap-3">

@@ -84,7 +84,7 @@ export const Scene07DarkLetter: React.FC<Scene07DarkLetterProps> = ({
     if (!isUnlocked) {
       romanticAudio.playTypewriterKeySound();
       setLockError(
-        `This letter is sealed by your Bava's heart. You must uncover all 12 reasons in Chapter 06 to break this seal (${count}/12 discovered) ❤️`
+        `This letter is sealed by your Bava's heart. You must uncover all 12 reasons in Chapter 05 to break this seal (${count}/12 discovered) ❤️`
       );
       return;
     }

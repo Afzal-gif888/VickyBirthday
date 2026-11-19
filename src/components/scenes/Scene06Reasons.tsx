@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import confetti from 'canvas-confetti';
 import { Heart, Sparkles, CheckCircle2, ArrowRight, ArrowLeft, Lock } from 'lucide-react';
 import { PERSONALIZATION } from '../../config/personalization';
 import type { LoveReason } from '../../config/personalization';
@@ -54,6 +55,18 @@ export const Scene06Reasons: React.FC<Scene06ReasonsProps> = ({
       const discoveredIds = Object.keys(next)
         .map(Number)
         .filter((k) => next[k]);
+
+      if (discoveredIds.length === reasons.items.length) {
+        romanticAudio.playCelebrationSound();
+        try {
+          confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ['#ffd700', '#f43f5e', '#ffffff', '#fb7185'],
+          });
+        } catch {}
+      }
 
       try {
         sessionStorage.setItem('vicky_discovered_reasons', JSON.stringify(discoveredIds));

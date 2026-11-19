@@ -4,6 +4,7 @@ import { CosmicBackground } from './components/canvas/CosmicBackground';
 import { SecretLockScreen } from './components/auth/SecretLockScreen';
 import { MobileMusicWidget } from './components/layout/MobileMusicWidget';
 import { DesktopGate } from './components/layout/DesktopGate';
+import { TouchHeartSparkle } from './components/ui/TouchHeartSparkle';
 
 import { Scene01Entrance } from './components/scenes/Scene01Entrance';
 import { Scene02Birthday } from './components/scenes/Scene02Birthday';
@@ -106,6 +107,9 @@ function App() {
   return (
     <DesktopGate>
       <div className="relative min-h-screen bg-[#07030d] text-rose-100 flex justify-center overflow-x-hidden selection:bg-rose-500 selection:text-white">
+        {/* Interactive Floating Love Tap & Touch Sparkle FX */}
+        <TouchHeartSparkle />
+
         {/* Dynamic Cosmic Background */}
         <CosmicBackground theme={getCosmicTheme()} />
 
